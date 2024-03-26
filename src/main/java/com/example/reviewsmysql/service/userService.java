@@ -2,6 +2,7 @@ package com.example.reviewsmysql.service;
 
 import com.example.reviewsmysql.Exception.EmailNullException;
 import com.example.reviewsmysql.Exception.InvalidEmailException;
+import com.example.reviewsmysql.Exception.NameNullExeception;
 import com.example.reviewsmysql.Exception.UserAlreadyExist;
 import com.example.reviewsmysql.TypeRole;
 import com.example.reviewsmysql.entity.Role;
@@ -34,6 +35,9 @@ public class userService {
         Optional<User> userfindnbyEmail = this.userRepo.findByEmail(user.getEmail());
         if ( userfindnbyEmail.isPresent() ) {
             throw  new UserAlreadyExist();
+        }
+        if ( user.getName().isBlank() && user.getName().equals("") && user.getName().isEmpty()){
+            throw  new NameNullExeception();
         }
         if ( !user.getEmail().contains("@") ){
             throw  new InvalidEmailException();
