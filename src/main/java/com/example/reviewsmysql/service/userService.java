@@ -31,8 +31,8 @@ public class userService {
     }
 
     public  void  ValidatorsField(User user){
-        Optional<User> userfind = this.userRepo.findByEmail(user.getEmail());
-        if ( userfind.isPresent() ) {
+        Optional<User> userfindnbyEmail = this.userRepo.findByEmail(user.getEmail());
+        if ( userfindnbyEmail.isPresent() ) {
             throw  new UserAlreadyExist();
         }
         if ( !user.getEmail().contains("@") ){
