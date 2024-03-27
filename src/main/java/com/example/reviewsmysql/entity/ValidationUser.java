@@ -27,6 +27,6 @@ public class ValidationUser {
     @OneToOne(cascade = CascadeType.ALL)
     User user ;
     @Column(name = "code d'activation")
-    Integer ActivationCode ;
+    String ActivationCode ;
 
 }

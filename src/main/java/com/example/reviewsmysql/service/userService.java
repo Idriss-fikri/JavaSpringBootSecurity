@@ -20,6 +20,8 @@ public class userService {
     private  final UserRepo userRepo ;
     private BCryptPasswordEncoder passwordEncoder ;
 
+    private  ValidationUserService  validationUserService ;
+
     public  void  SignUser(User user ){
         ValidatorsField( user);
         String password = user.getPassword();
@@ -29,6 +31,8 @@ public class userService {
         role.setRole(TypeRole.USER ); // somene who sign he is a user
         user.setRole(role);
         this.userRepo.save(user);
+        this.validationUserService.ValidationUserInscription(user);
+
     }
 
     public  void  ValidatorsField(User user){
