@@ -1,5 +1,5 @@
-CREATE TABLE review (
+CREATE TABLE testsql (
     id SERIAL PRIMARY KEY,
-    message_reviews VARCHAR(50) NOT NULL UNIQUE,
+    message VARCHAR(50) NOT NULL UNIQUE,
 
 );
