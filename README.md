@@ -25,11 +25,10 @@ Cette commande va télécharger les images Docker nécessaires et démarrer les 
 2. Pour vous connecter à la base de données, vous pouvez utiliser un outil tel que pgAdmin ou DBeaver. Utilisez les informations suivantes pour configurer la connexion :
     - Host: localhost
     - Port: 5433
-    - Database: louetavoiture
+    - Database: reviews
     - Username: postgres
     - Password: postgres
 
-Assurez-vous d'utiliser les identifiants de connexion appropriés pour accéder à la base de données. Une fois connecté, vous pourrez gérer la base de données et effectuer les opérations nécessaires pour le bon fonctionnement de l'application LoueTaVoiture.
 
 
 
