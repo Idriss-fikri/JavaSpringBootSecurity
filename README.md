@@ -9,7 +9,7 @@ Site disponible ici : https://www.docker.com/products/docker-desktop/
 
 ## Installation de la base de données en local
 
-Pour installer la base de données "louetavoiture" localement, suivez ces étapes :
+Pour installer la base de données  localement, suivez ces étapes :
 
 1. Assurez-vous que Docker est installé sur votre système.
 
