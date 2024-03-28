@@ -13,7 +13,7 @@ Pour installer la base de données  localement, suivez ces étapes :
 
 1. Assurez-vous que Docker est installé sur votre système.
 
-2. Utilisez la commande suivante dans le répertoire *louetavoiture-docker/* : pour démarrer la base de données en utilisant docker-compose :
+2. Utilisez la commande suivante dans le répertoire *reviews-docker/* : pour démarrer la base de données en utilisant docker-compose :
    
    ```bash
    docker compose up -d
@@ -21,8 +21,7 @@ Pour installer la base de données  localement, suivez ces étapes :
 
 Cette commande va télécharger les images Docker nécessaires et démarrer les conteneurs associés à la base de données. Le conteneur contiendra une instance de la base de données PostgreSQL prête à être utilisée.
 
-1. Après avoir exécuté la commande, vous pouvez vérifier que les conteneurs sont en cours d'exécution en utilisant la commande ```docker ps```. Vous devriez voir un conteneur nommé "*louetavoiture-docker-postgres*" dans la liste des conteneurs actifs.
-
+1. Après avoir exécuté la commande, vous pouvez vérifier que les conteneurs sont en cours d'exécution en utilisant la commande ```docker ps```. 
 2. Pour vous connecter à la base de données, vous pouvez utiliser un outil tel que pgAdmin ou DBeaver. Utilisez les informations suivantes pour configurer la connexion :
     - Host: localhost
     - Port: 5433
