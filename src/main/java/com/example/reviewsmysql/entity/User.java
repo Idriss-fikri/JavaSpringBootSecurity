@@ -24,7 +24,7 @@ public class User  implements UserDetails {
     Long Id ;
     @Column(name = "nom")
     String name ;
-    @Column(name = "aadresse_email ")
+    @Column(name = "adresse_email ")
     String email ;
     @Column (name = "mot_de_passe")
     String password ;

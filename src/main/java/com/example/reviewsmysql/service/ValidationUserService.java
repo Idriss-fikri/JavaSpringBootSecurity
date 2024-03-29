@@ -4,19 +4,17 @@ import com.example.reviewsmysql.entity.User;
 import com.example.reviewsmysql.entity.ValidationUser;
 import com.example.reviewsmysql.repository.ValidationUserRepo;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 import java.util.Random;
 
 @Service
 @AllArgsConstructor
 public class ValidationUserService {
     private  final ValidationUserRepo validationUserRepo ;
+    private  final mailSenderService mailSenderService ;
 
 
 
@@ -33,7 +31,11 @@ public class ValidationUserService {
         String code = String.format("%06d",randomInteger);
         validationUser.setActivationCode(code);
         this.validationUserRepo.save(validationUser);
+        this.mailSenderService.SendEmail(validationUser);
 
     }
+    // after validation of the user  we need to send him  an email  with the code of activation , we will  send him an email  with javamailsender
+
+
 
 }

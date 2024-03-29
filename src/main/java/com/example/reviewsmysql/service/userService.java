@@ -7,11 +7,14 @@ import com.example.reviewsmysql.Exception.UserAlreadyExist;
 import com.example.reviewsmysql.TypeRole;
 import com.example.reviewsmysql.entity.Role;
 import com.example.reviewsmysql.entity.User;
+import com.example.reviewsmysql.entity.ValidationUser;
 import com.example.reviewsmysql.repository.UserRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -21,6 +24,7 @@ public class userService {
     private BCryptPasswordEncoder passwordEncoder ;
 
     private  ValidationUserService  validationUserService ;
+
 
     public  void  SignUser(User user ){
         ValidatorsField( user);
@@ -54,4 +58,5 @@ public class userService {
         }
 
     }
+
 }

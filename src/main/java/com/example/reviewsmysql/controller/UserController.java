@@ -6,8 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -18,6 +19,8 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "inscription")
     public void inscription(@RequestBody User user) {
+
         this.userService.SignUser(user);
     }
+
 }
