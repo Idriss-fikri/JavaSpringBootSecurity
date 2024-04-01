@@ -20,13 +20,13 @@ public class ValidationUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long Id ;
-    @Column(name = "date de creation ")
+    @Column(name = "creation_date ")
     Instant CreationDate ;
-    @Column(name = "date d'expiration ")
+    @Column(name = "expire_date ")
     Instant ExpireDate ;
     @OneToOne(cascade = CascadeType.ALL)
     User user ;
-    @Column(name = "code d'activation")
-    String ActivationCode ;
+    @Column(name = "activation_code")
+    String code;
 
 }

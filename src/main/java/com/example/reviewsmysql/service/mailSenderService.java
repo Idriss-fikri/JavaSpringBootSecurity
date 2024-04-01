@@ -17,7 +17,7 @@ public class mailSenderService {
         simpleMailMessage.setSubject("Votre code d'activation pour valider votre compte");
         String messagemail = String.format("Bonjour %s,\n\nVoici votre code d'activation : %s",
                 validationUser.getUser().getName(),
-                validationUser.getActivationCode());
+                validationUser.getCode());
 
         simpleMailMessage.setText(messagemail);
 

@@ -1,5 +1,6 @@
 package com.example.reviewsmysql.service;
 
+import com.example.reviewsmysql.Exception.NoCodeFindExeception;
 import com.example.reviewsmysql.entity.User;
 import com.example.reviewsmysql.entity.ValidationUser;
 import com.example.reviewsmysql.repository.ValidationUserRepo;
@@ -13,8 +14,8 @@ import java.util.Random;
 @Service
 @AllArgsConstructor
 public class ValidationUserService {
-    private  final ValidationUserRepo validationUserRepo ;
-    private  final mailSenderService mailSenderService ;
+    private   ValidationUserRepo validationUserRepo ;
+    private   mailSenderService mailSenderService ;
 
 
 
@@ -29,13 +30,14 @@ public class ValidationUserService {
         Random random = new Random() ;
         Integer randomInteger =random.nextInt(999999);
         String code = String.format("%06d",randomInteger);
-        validationUser.setActivationCode(code);
+        validationUser.setCode(code);
         this.validationUserRepo.save(validationUser);
         this.mailSenderService.SendEmail(validationUser);
 
     }
-    // after validation of the user  we need to send him  an email  with the code of activation , we will  send him an email  with javamailsender
-
-
+    public ValidationUser getCode(String code){
+        return this.validationUserRepo.findByCode(code)
+                .orElseThrow(()-> new NoCodeFindExeception()) ;
+    }
 
 }

@@ -9,5 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ValidationUserRepo  extends JpaRepository<ValidationUser, Long> {
+     Optional<ValidationUser> findByCode(String code);
+
 
 }

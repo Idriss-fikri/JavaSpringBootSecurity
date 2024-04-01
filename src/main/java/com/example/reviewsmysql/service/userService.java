@@ -1,26 +1,23 @@
 package com.example.reviewsmysql.service;
 
-import com.example.reviewsmysql.Exception.EmailNullException;
-import com.example.reviewsmysql.Exception.InvalidEmailException;
-import com.example.reviewsmysql.Exception.NameNullExeception;
-import com.example.reviewsmysql.Exception.UserAlreadyExist;
+import com.example.reviewsmysql.Exception.*;
 import com.example.reviewsmysql.TypeRole;
 import com.example.reviewsmysql.entity.Role;
 import com.example.reviewsmysql.entity.User;
 import com.example.reviewsmysql.entity.ValidationUser;
 import com.example.reviewsmysql.repository.UserRepo;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.Map;
 import java.util.Optional;
-
-@Service
 @AllArgsConstructor
+@Service
 public class userService {
-    private  final UserRepo userRepo ;
+    private   UserRepo userRepo ;
     private BCryptPasswordEncoder passwordEncoder ;
 
     private  ValidationUserService  validationUserService ;
@@ -59,4 +56,15 @@ public class userService {
 
     }
 
+    public void activation(Map<String, String> activation) {
+        ValidationUser validation = this.validationUserService.getCode(activation.get("code"));
+        if(Instant.now().isAfter(validation.getExpireDate())){
+            throw  new CodeExpiredExeption();
+        }
+        User utilisateurActiver = this.userRepo.findById(validation.getUser().getId()).orElseThrow(() ->
+
+                new NoUserFoundException());
+        utilisateurActiver.setActif(true);
+        this.userRepo.save(utilisateurActiver);
+    }
 }

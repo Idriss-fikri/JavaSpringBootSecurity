@@ -23,6 +23,7 @@ public class ConfigurationSecuriteApplication {
                                 authorize ->
                                         authorize
                                                 .requestMatchers(POST, "/inscription").permitAll()
+                                                .requestMatchers(POST ,"/activation").permitAll()
                                                 .anyRequest().authenticated()
                         ).build();
     }
