@@ -55,4 +55,11 @@ Si vous avez besoin de modifier le script SQL *init-db.sql*  suivez ces étapes 
 
 
 
+## Utilisation de DTO  ( Data transfer Object ) 
+
+Durant le developement de ce projet personel ,  j'ai décidé d'implementé le pattern DTO qui me permettra  d'avoir plus de controle sur mes données et notamment   envoier des requettes que avec mes DTO  .
+Des fois lors du developement , on veut pas que dans nos requettes en envoie par exemple  ( le mot de passe ) ,  donc avec DTO pattern , on aura plus de controles sur nos entity . 
+
+<img width="796" alt="image" src="https://github.com/Idriss-fikri/JavaSpringBootSecurity/assets/71135548/ebbda8aa-af5b-4403-a333-2241c0db593d">
+
 
