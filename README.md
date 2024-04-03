@@ -62,4 +62,9 @@ Des fois lors du developement , on veut pas que dans nos requettes en envoie par
 
 <img width="796" alt="image" src="https://github.com/Idriss-fikri/JavaSpringBootSecurity/assets/71135548/ebbda8aa-af5b-4403-a333-2241c0db593d">
 
+On peut creer un package DTO , ou on creera nos classes qui aurant des methodes statiques :  dto to entity ou/et entity to dto :
+
+ what is Static method ? 
+The declared static methods can be called directly on the Calculation class without creating an instance of the class first. That is to say, you do not need to create an object of the Calculation class before you access the static add and multiply classes. The main() method in Java is an example of a static method.
+
 
