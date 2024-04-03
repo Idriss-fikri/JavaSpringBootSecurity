@@ -23,7 +23,13 @@ public class User  implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long Id ;
     @Column(name = "nom")
-    String name ;
+    String firstname ;
+
+
+    @Column(name = "prenom")
+    String lastname ;
+
+
     @Column(name = "adresse_email ")
     String email ;
     @Column (name = "mot_de_passe")
@@ -33,6 +39,7 @@ public class User  implements UserDetails {
     boolean actif = false;
     @OneToOne( cascade = CascadeType.ALL)
     Role role ;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

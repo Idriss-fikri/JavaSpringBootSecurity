@@ -1,7 +1,9 @@
 package com.example.reviewsmysql.service;
 
 import com.example.reviewsmysql.Exception.*;
+import com.example.reviewsmysql.Mapper.UserMapper;
 import com.example.reviewsmysql.TypeRole;
+import com.example.reviewsmysql.dto.UserDto;
 import com.example.reviewsmysql.entity.Role;
 import com.example.reviewsmysql.entity.User;
 import com.example.reviewsmysql.entity.ValidationUser;
@@ -22,6 +24,8 @@ public class userService {
 
     private  ValidationUserService  validationUserService ;
 
+    private UserMapper userMapper ;
+
 
     public  void  SignUser(User user ){
         ValidatorsField( user);
@@ -41,7 +45,7 @@ public class userService {
         if ( userfindnbyEmail.isPresent() ) {
             throw  new UserAlreadyExist();
         }
-        if ( user.getName().isBlank() && user.getName().equals("") && user.getName().isEmpty()){
+        if ( user.getFirstname().isBlank() && user.getFirstname().equals("") && user.getFirstname().isEmpty()){
             throw  new NameNullExeception();
         }
         if ( !user.getEmail().contains("@") ){
@@ -66,5 +70,15 @@ public class userService {
                 new NoUserFoundException());
         utilisateurActiver.setActif(true);
         this.userRepo.save(utilisateurActiver);
+    }
+
+
+    public UserDto getUserById(Long id ){
+        User user = new User() ;
+        user = this.userRepo.findById(id)
+                .orElseThrow(() -> new NoUserFoundException());
+
+
+        return userMapper.fromEntityToDto(user);
     }
 }

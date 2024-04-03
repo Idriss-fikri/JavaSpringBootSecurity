@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 
 @Configuration
@@ -24,6 +25,7 @@ public class ConfigurationSecuriteApplication {
                                         authorize
                                                 .requestMatchers(POST, "/inscription").permitAll()
                                                 .requestMatchers(POST ,"/activation").permitAll()
+                                                .requestMatchers(GET , "/user/{id}").permitAll()
                                                 .anyRequest().authenticated()
                         ).build();
     }
